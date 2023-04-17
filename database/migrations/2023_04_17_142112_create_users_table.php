@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('password', 100);
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
+
+            $table->primary('id');
         });
     }
 
