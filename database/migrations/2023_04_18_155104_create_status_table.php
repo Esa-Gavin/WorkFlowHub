@@ -14,8 +14,10 @@ class CreateStatusTable extends Migration
     public function up()
     {
         Schema::create('status', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedBigInteger('id')->length(11)->autoIncrement();
+            $table->string('name', 50);
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

@@ -16,13 +16,11 @@ class CreateUsersTable extends Migration
         // 👇 to set the 'id' column to have 'int(12)', you can use the //
         // unsignedBigInteger method and specify the desired length with the length attribute // 
         Schema::create('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('id', 12)->length(12)->autoIncrement();
+            $table->unsignedBigInteger('id')->length(12)->autoIncrement();
             $table->string('email_address', 100)->unique();
             $table->string('password', 100);
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
-
-            $table->primary('id');
         });
     }
 
