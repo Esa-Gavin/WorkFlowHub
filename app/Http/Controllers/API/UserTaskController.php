@@ -34,7 +34,7 @@ class UserTaskController extends Controller
             'start_time' => 'required|date',
             'end_time' => 'required|date',
             'remarks' => 'max:100',
-            'status_id' => 'required|exists:status,id',
+            'status_id' => 'required|exists:statuses,id',
         ]);
 
         $userTask = UserTask::create($validated);
@@ -68,7 +68,7 @@ class UserTaskController extends Controller
             'start_time' => 'date',
             'end_time' => 'date',
             'remarks' => 'max:100',
-            'status_id' => 'exists:status,id',
+            'status_id' => 'exists:statuses,id',
         ]);
 
         $userTask->update($validated);

@@ -19,7 +19,7 @@ class CreateTasksTable extends Migration
             $table->string('description', 255);
             $table->timestamp('due_date');
             $table->unsignedBigInteger('status_id')->length(12);
-            $table->foreign('status_id')->references('id')->on('status');
+            $table->foreign('status_id')->references('id')->on('statuses');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

@@ -31,7 +31,7 @@ class TaskController extends Controller
             'name' => 'required|max:100',
             'description' => 'max:255',
             'due_date' => 'required|date',
-            'status_id' => 'required|exists:status,id',
+            'status_id' => 'required|exists:statuses,id',
         ]);
 
         $task = Task::create($validated);
@@ -62,7 +62,7 @@ class TaskController extends Controller
             'name' => 'max:100',
             'description' => 'max:255',
             'due_date' => 'date',
-            'status_id' => 'exists:status,id',
+            'status_id' => 'exists:statuses,id',
         ]);
 
         $task->update($validated);

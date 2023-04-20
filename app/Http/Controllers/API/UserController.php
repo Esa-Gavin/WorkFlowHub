@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -28,6 +29,15 @@ class UserController extends Controller
             'password' => 'required|min:8',
         ]);
 
+    // 👇 create a new user instance and populate it with the request data //
+
+        $user = new User();
+        $user->email_address = $request->email_address;
+        $user->password = Hash::make($request->password);
+
+        // 🙃 save the user to the database
+        $user->save();
+        // 👇 Return the newly created user as a JSON response with a 201 status //
         return response()->json(['user' => $user], 201);
     }
     // 👇 show(User $user) retrieves a specific user. //
@@ -44,16 +54,12 @@ class UserController extends Controller
             'password' => 'min:8',
         ]);
 
-        if (isset($validated['email_address'])) {
-            $user->email_address = $validated['email_address'];
-        }
-
-        if (isset($validated['email_address'])) {
-            $user->email_address = $validated['email_address'];
+        if (isset($validated['email'])) {
+            $user->email_address = $validated['email'];
         }
 
         if(isset($validated['password'])) {
-            $user->password = bcrypt($validated['password']);
+            $user->password = Hash::make($validated['password']);
         }
 
         $user->save();
