@@ -18,8 +18,8 @@ class CreateUserTasksTable extends Migration
             $table->unsignedBigInteger('user_id')->length(11);
             $table->unsignedBigInteger('task_id')->length(11);
             $table->timestamp('due_date');
-            $table->timestamp('start_time');
-            $table->timestamp('end_time');
+            $table->timestamp('start_time')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('end_time')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->string('remarks', 100);
             $table->unsignedBigInteger('status_id');
             $table->timestamps();
