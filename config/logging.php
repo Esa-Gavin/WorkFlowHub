@@ -113,6 +113,14 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+        'heroku_stderr' => [
+        'driver' => 'monolog',
+        'handler' => Monolog\Handler\StreamHandler::class,
+        'handler_with' => [
+            'stream' => 'php://stderr',
+        ],
+        'level' => 'debug',
+        ],
     ],
 
 ];
