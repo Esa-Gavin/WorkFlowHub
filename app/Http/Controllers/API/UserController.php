@@ -5,7 +5,6 @@ namespace App\Http\Controllers\API;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -25,15 +24,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'name' => 'required|string|max:255',
             'email_address' => 'required|email|unique:users',
-            'password' => 'required|min:8',
         ]);
 
     // 👇 create a new user instance and populate it with the request data //
 
         $user = new User();
-        $user->email_address = $request->email_address;
-        $user->password = Hash::make($request->password);
+        $user->name = $request->name;
+        $user->email = $request->email;
 
         // 🙃 save the user to the database
         $user->save();
@@ -50,16 +49,16 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $validated = $request->validate([
-            'email_address' => 'email|unique:users,email_address,' . $user->id,
-            'password' => 'min:8',
+            'name' => 'sometimes|required|string|max:255',
+            'email' => 'sometimes|required|email|unique:users,email,' . $user->id,
         ]);
 
-        if (isset($validated['email'])) {
-            $user->email_address = $validated['email'];
+        if (isset($validated['name'])) {
+            $user->name = $validated['name'];
         }
 
-        if(isset($validated['password'])) {
-            $user->password = Hash::make($validated['password']);
+        if(isset($validated['email'])) {
+            $user->email = $validated['email'];
         }
 
         $user->save();

@@ -23,7 +23,12 @@
     </div>
 </template>
 <script>
+import userService from '../js/services/userService';
+import UserForm from './UserForm.vue';
 export default {
+    components: {
+        UserForm,
+    },
     data() {
         return {
             users: [
@@ -32,6 +37,18 @@ export default {
                 { id: 2, name: "Jane Doe", email: "jane.doe@example.com" },
             ],
         };
+    },
+    async mounted() {
+        try {
+            this.users = await userService.getUsers();
+        } catch (error) {
+            console.error('Error fetching users:', error);
+        }
+    },
+    methods: {
+        handleUserCreated(newUser) {
+            this.users.push(newUser);
+        },
     },
 };
 </script>

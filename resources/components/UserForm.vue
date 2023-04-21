@@ -27,6 +27,8 @@
     </div>
 </template>
 <script>
+import userService from "../js/services/userService";
+
 export default {
     data() {
         return {
@@ -37,9 +39,16 @@ export default {
         };
     },
     methods: {
-        submitForm() {
+        async submitForm() {
             // Handle form submission, e.g., call API to create a user
-            console.log("Form submitted:", this.user);
+            try {
+                const newUser = await userService.createUser(this.user);
+                this.$emit("user-created", newUser);
+                console.log("Form submitted:", this.user);
+                this.user = { name: "", email: "" };
+            } catch (error) {
+                console.error("Error creating user:", error);
+            }
         },
     },
 };
