@@ -46,7 +46,7 @@
                 </ul>
             </div>
         </nav>
-            <h1>Hello, welcome to my application!</h1>
+            <router-view></router-view>
         </div>
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
