@@ -2753,17 +2753,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _components_ExampleComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/ExampleComponent.vue */ "./resources/components/ExampleComponent.vue");
-/* harmony import */ var _components_UserList_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/UserList.vue */ "./resources/components/UserList.vue");
-/* harmony import */ var _components_UserForm_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/UserForm.vue */ "./resources/components/UserForm.vue");
-/* harmony import */ var _components_StatusList_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/StatusList.vue */ "./resources/components/StatusList.vue");
-/* harmony import */ var _components_StatusForm_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/StatusForm.vue */ "./resources/components/StatusForm.vue");
-/* harmony import */ var _components_TaskList_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/TaskList.vue */ "./resources/components/TaskList.vue");
-/* harmony import */ var _components_TaskForm_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/TaskForm.vue */ "./resources/components/TaskForm.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _components_ExampleComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/ExampleComponent.vue */ "./resources/components/ExampleComponent.vue");
+/* harmony import */ var _components_UserList_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/UserList.vue */ "./resources/components/UserList.vue");
+/* harmony import */ var _components_UserForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/UserForm.vue */ "./resources/components/UserForm.vue");
+/* harmony import */ var _components_StatusList_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/StatusList.vue */ "./resources/components/StatusList.vue");
+/* harmony import */ var _components_StatusForm_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/StatusForm.vue */ "./resources/components/StatusForm.vue");
+/* harmony import */ var _components_TaskList_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/TaskList.vue */ "./resources/components/TaskList.vue");
+/* harmony import */ var _components_TaskForm_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/TaskForm.vue */ "./resources/components/TaskForm.vue");
 
 
 
@@ -2773,36 +2771,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('example-component', _components_ExampleComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('user-list', _components_UserList_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_8__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_9__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_7__["default"].component('example-component', _components_ExampleComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_7__["default"].component('user-list', _components_UserList_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_7__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_8__["default"]);
 
 // 👇 route configuration //
 var routes = [{
   path: "/",
-  component: _components_UserList_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  component: _components_UserList_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
 }, {
   path: "/user-form",
-  component: _components_UserForm_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _components_UserForm_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
   path: "/status-list",
-  component: _components_StatusList_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+  component: _components_StatusList_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
 }, {
   path: "/status-form",
-  component: _components_StatusForm_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+  component: _components_StatusForm_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
   path: "/task-list",
-  component: _components_TaskList_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+  component: _components_TaskList_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
 }, {
   path: "/task-form",
-  component: _components_TaskForm_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+  component: _components_TaskForm_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
 }];
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_9__["default"]({
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_8__["default"]({
   mode: "history",
   routes: routes
 });
-var app = new vue__WEBPACK_IMPORTED_MODULE_8__["default"]({
+var app = new vue__WEBPACK_IMPORTED_MODULE_7__["default"]({
   el: '#app',
   router: router // 👈 add the router instance to the vue instance //
 });

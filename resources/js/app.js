@@ -1,5 +1,4 @@
 import Vue from "vue";
-import axios from 'axios';
 import VueRouter from "vue-router";
 import ExampleComponent from '../components/ExampleComponent.vue';
 import UserList from '../components/UserList.vue';
