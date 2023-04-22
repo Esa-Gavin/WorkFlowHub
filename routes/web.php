@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return 'root path is working';
+    return view('welcome');
 });
 
 Route::get('/test', function () {
