@@ -48,7 +48,7 @@
         </nav>
             <router-view></router-view>
         </div>
-        <!-- Scripts -->
+        <!-- Scripts .-->
         <script src="{{ mix('js/app.js') }}" defer></script>
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
