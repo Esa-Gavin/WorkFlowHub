@@ -15,7 +15,8 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "monolog/monolog": "^2.9"
+        "monolog/monolog": "^2.9",
+        "predis/predis": "^2.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
