@@ -32,7 +32,7 @@ class UserController extends Controller
 
         $user = new User();
         $user->name = $request->name;
-        $user->email = $request->email;
+        $user->email_address = $request->email_address;
 
         // 🙃 save the user to the database
         $user->save();
@@ -50,15 +50,15 @@ class UserController extends Controller
     {
         $validated = $request->validate([
             'name' => 'sometimes|required|string|max:255',
-            'email' => 'sometimes|required|email|unique:users,email,' . $user->id,
+            'email_address' => 'sometimes|required|email|unique:users,email_address,' . $user->id,
         ]);
 
         if (isset($validated['name'])) {
             $user->name = $validated['name'];
         }
 
-        if(isset($validated['email'])) {
-            $user->email = $validated['email'];
+        if(isset($validated['email_address'])) {
+            $user->email_address = $validated['email_address'];
         }
 
         $user->save();

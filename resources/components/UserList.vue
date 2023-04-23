@@ -10,10 +10,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="user in users" :key="user.id">
+                <tr v-for="user in userList" :key="user.id">
                     <td>{{ user.id }}</td>
                     <td>{{ user.name }}</td>
-                    <td>{{ user.email }}</td>
+                    <td>{{ user.email_address }}</td>
                 </tr>
             </tbody>
         </table>
@@ -23,26 +23,18 @@
     </div>
 </template>
 <script>
-import userService from '../js/services/userService';
+import { mapState } from "vuex";
+
 export default {
-    data() {
-        return {
-            users: [
-                // You can either fetch the users from your API or use dummy data for now
-                /* { id: 1, name: "John Doe", email: "john.doe@example.com" },
-                { id: 2, name: "Jane Doe", email: "jane.doe@example.com" }, */
-            ],
-        };
+    computed: {
+        ...mapState(["userList"]),
     },
-    async mounted() {
-        try {
-            this.users = await userService.getUsers();
-        } catch (error) {
-            console.error('Error fetching users:', error);
-        }
+    created() {
+        this.$store.dispatch("fetchUsers");
     },
 };
 </script>
+
 <style scoped>
 .container {
     width: 100%;

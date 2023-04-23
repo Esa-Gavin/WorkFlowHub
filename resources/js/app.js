@@ -25,10 +25,10 @@ const router = new VueRouter({
     routes,
 });
 
-new Vue({
+const app = new Vue({
+    el: '#app',
     router, // 👈 add the router instance to the vue instance //
     store,
-    render: h => h(App),
-}).$mount('#app');
+});
 
 export default router;

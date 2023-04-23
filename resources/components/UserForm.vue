@@ -17,7 +17,7 @@
                 <input
                     type="email"
                     id="email"
-                    v-model="user.email"
+                    v-model="user.email_address"
                     class="form-control"
                     required
                 />
@@ -27,25 +27,26 @@
     </div>
 </template>
 <script>
-import userService from "../js/services/userService";
+import { mapActions } from 'vuex';
 
 export default {
     data() {
         return {
             user: {
                 name: "",
-                email: "",
+                email_address: "",
             },
         };
     },
     methods: {
+        ...mapActions(["createUser"]),
         async submitForm() {
-            // Handle form submission, e.g., call API to create a user
             try {
-                const newUser = await userService.createUser(this.user);
-                this.$emit("user-created", newUser);
+                await this.createUser(this.user);
                 console.log("Form submitted:", this.user);
-                this.user = { name: "", email: "" };
+                this.user = { name: "", email_address: "" };
+                this.$router.push('/');
+                
             } catch (error) {
                 console.error("Error creating user:", error);
             }

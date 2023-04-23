@@ -7,7 +7,7 @@ const userService = {
     async getUsers() {
         try {
             const response = await axios.get(`${API_BASE_URL}/users`);
-            return response.data;
+            return response.data.user;
         } catch (error) {
             console.error('Error fetching users:', error);
             throw error;
@@ -19,7 +19,7 @@ const userService = {
             const response = await axios.post(`${API_BASE_URL}/users`, user);
             return response.data;
         } catch (error) {
-            console.error('Error creating user:', error);
+            console.log(error.response.data);
             throw error;
         }
     }

@@ -17,8 +17,9 @@ class CreateUsersTable extends Migration
         // unsignedBigInteger method and specify the desired length with the length attribute // 
         Schema::create('users', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->length(12)->autoIncrement();
+            $table->string('name');
             $table->string('email_address', 100)->unique();
-            $table->string('password', 100);
+            $table->string('password', 100)->default('default_password');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });
