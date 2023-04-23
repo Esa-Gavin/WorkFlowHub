@@ -38,7 +38,7 @@ return [
         ],
 
         'array' => [
-            'driver' => 'array',
+            'driver' => env('APP_CACHE','array'),
             'serialize' => false,
         ],
 
