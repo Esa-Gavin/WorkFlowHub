@@ -1,15 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import ExampleComponent from '../components/ExampleComponent.vue';
 import UserList from '../components/UserList.vue';
 import UserForm from "../components/UserForm.vue";
 import StatusList from "../components/StatusList.vue";
 import StatusForm from "../components/StatusForm.vue";
 import TaskList from "../components/TaskList.vue";
 import TaskForm from "../components/TaskForm.vue";
-
-Vue.component('example-component', ExampleComponent);
-Vue.component('user-list', UserList);
+import store from "./store";
 
 Vue.use(VueRouter); 
 
@@ -28,9 +25,10 @@ const router = new VueRouter({
     routes,
 });
 
-const app = new Vue({
-    el: '#app',
+new Vue({
     router, // 👈 add the router instance to the vue instance //
-});
+    store,
+    render: h => h(App),
+}).$mount('#app');
 
 export default router;

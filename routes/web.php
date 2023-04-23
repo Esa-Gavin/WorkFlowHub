@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | ...
 */
 
-Route::get('/', function () {
+Route::get('/{any}', function () { // '/{any}'👈 this is a catch-all route. 
     return view('welcome');
-});
+})->where('any', '.*'); 
 

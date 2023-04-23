@@ -24,17 +24,13 @@
 </template>
 <script>
 import userService from '../js/services/userService';
-import UserForm from './UserForm.vue';
 export default {
-    components: {
-        UserForm,
-    },
     data() {
         return {
             users: [
                 // You can either fetch the users from your API or use dummy data for now
-                { id: 1, name: "John Doe", email: "john.doe@example.com" },
-                { id: 2, name: "Jane Doe", email: "jane.doe@example.com" },
+                /* { id: 1, name: "John Doe", email: "john.doe@example.com" },
+                { id: 2, name: "Jane Doe", email: "jane.doe@example.com" }, */
             ],
         };
     },
@@ -44,11 +40,6 @@ export default {
         } catch (error) {
             console.error('Error fetching users:', error);
         }
-    },
-    methods: {
-        handleUserCreated(newUser) {
-            this.users.push(newUser);
-        },
     },
 };
 </script>
