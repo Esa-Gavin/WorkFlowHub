@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('api')->group(function () {
+Route::middleware(['api', 'throttle:60,1'])->group(function () {
     Route::apiResource('users', UserController::class);
     Route::apiResource('statuses', StatusController::class);
     Route::apiResource('tasks', TaskController::class);

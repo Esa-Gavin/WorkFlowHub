@@ -10,29 +10,39 @@ export default new Vuex.Store({
     },
     mutations: { // 👈 mutations are meant to update the users list
         SET_USER_LIST(state, userList) { // 👈 setUsers mutation is used to update the entire users list
-            state.userList = userList;
+            state.userList = [...userList];
         },
         addUser(state, user) { // 👈 addUser mutation adds a single user to the list.
-            state.userList.push(user)
+            console.log("State:", state);
+            console.log("Before adding user:", state.userList);
+            state.userList.push(user);
+            console.log("After adding user:",state.userList);
+        },
+        RESET_USER_LIST(state) {
+            state.userList = [];
         },
     },
     actions: {
         async fetchUsers({ commit }) {
             try {
                 const users = await userService.getUsers();
-                commit('SET_USER_LIST', users);
+                console.log('Fetched users:', users);
+                commit('SET_USER_LIST', Array.isArray(users.users) ? users.users : []);
             } catch (error) {
                 console.error("Error fetching users:", error);
             }
         },
-        async createUser({ commit }, user) {
+        async createUser({ dispatch }, user) {
             try {
-                const newUser = await userService.createUser(user);
-                commit('addUser', newUser);
+                await userService.createUser(user);
+                await dispatch('fetchUsers');
             } catch (error) {
                 console.error("Error creating user:", error);
                 throw error;
             }
+        },
+        resetUserList({ commit }) {
+            commit('RESET_USER_LIST');
         },
     },
     getters: {

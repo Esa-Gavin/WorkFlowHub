@@ -20,6 +20,7 @@
         <router-link to="/user-form" class="btn btn-primary"
             >Add User</router-link
         >
+        <button @click="resetUserList" class="btn btn-danger">Reset</button>
     </div>
 </template>
 <script>
@@ -31,6 +32,12 @@ export default {
     },
     created() {
         this.$store.dispatch("fetchUsers");
+        console.log(this.userList);
+    },
+    methods: {
+        resetUserList() {
+            this.$store.dispatch("resetUserList");
+        },
     },
 };
 </script>
